@@ -11,7 +11,7 @@ $password = "tttttt";
 $dbname = "projetTechWeb";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-/*
+
 $login = $_POST["login"];
 $mdp = $_POST["mdp"];
 
@@ -23,13 +23,13 @@ if ($login != "" and $mdp != "") {
                         $_SESSION["login"] = $row["login"];
                         $_SESSION["prenom"] = $row["prenom"];
                         $_SESSION["nom"] = $row["nom"];
+			header("location:dashboard.php");
                 }
         }
         else {
-                echo "Login et/ou mot de passe incorrect";
+                header("location:index.php?msg=failed");
         }
-}*/
-echo "Bonjour ". $_SESSION["prenom"];
+}
 ?>
 </body>
 </head>
