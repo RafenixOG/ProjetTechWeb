@@ -1,7 +1,7 @@
 # Projet de Technique Web
 Projet PHP du [Laboratoire de Technique Web](https://moodle.henallux.be/course/view.php?id=3083), 2020.
 
-Ce projet est réalisé dans le cadre d'un cours de 3ème lors de mes études au sein de l'IESN.
+Ce projet est réalisé dans le cadre d'un cours de 3ème lors de mes études en Technologie de l'Informatique au sein de l'IESN.
 
 ## Objectif
 Le but du projet consiste à créer un site web qui permettrait d'évaluer des étudiants à l'aide d'un questionnaire type QCM.
