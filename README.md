@@ -31,5 +31,6 @@ Le site sera habillé avec des feuilles de style CSS.
 * Décompte pour terminer l'évaluation
 * Hachage des mots de passe
 * Graphique avec résultats
+* Divers éléments en JavaScript
 
 D'autres fonctionalités pourraient s'ajouter en fonction du temps restant pour rendre le projet ainsi qu'au fil de mes envies.
