@@ -1,4 +1,4 @@
-# ProjetTechWeb
+# Projet de Technique Web
 Projet PHP du [Laboratoire de Technique Web](https://moodle.henallux.be/course/view.php?id=3083), 2020.
 
 Ce projet est réalisé dans le cadre d'un cours de 3ème lors de mes études au sein de l'IESN.
