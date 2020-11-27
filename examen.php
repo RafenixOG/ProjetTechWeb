@@ -17,14 +17,25 @@ $sqlNbQuestion = "select * from question;";
 $resultNbQuestion = mysqli_query($conn, $sqlNbQuestion);
 $nbQuestion = intdiv(mysqli_num_rows($resultNbQuestion), 2);
 
-$sqlQuestion = "select question.intitule from question inner join matiere on question.FK_matiere = matiere.id where matiere.intitule = '". $_POST["bouton"]. "' order by rand() limit ". $nbQuestion. " ;";
+$sqlQuestion = "select question.intitule as intitule_Q, question.id as id_Q from question inner join matiere on question.FK_matiere = matiere.id where matiere.intitule = '". $_POST["bouton"]. "' order by rand() limit ". $nbQuestion. " ;";
 $resultQuestion = mysqli_query($conn, $sqlQuestion);
+$i = 1;
 
+echo "<form method='post' action='validation.php'>";
 while($row = mysqli_fetch_assoc($resultQuestion)) {
-	echo  $row["intitule"]. "<br>";
+	echo $i. ") ".$row["intitule_Q"]. "<br><br>";
+	$sqlReponse = "select * from reponse where FK_question = '". $row["id_Q"]. "';";
+	$resultReponse = mysqli_query($conn, $sqlReponse);
+	while($repRow = mysqli_fetch_assoc($resultReponse)) {
+		echo "<input type='radio' id='". $repRow["id"]. "' name='". $i. "' value='". $repRow["id"]. "'>";
+		echo "<label for='". $repRow["id"]. "'>". $repRow["intitule"]. "</label><br>";
+	}
+	echo "<input type='radio' id='jsp' name='". $i. "' value='jsp'>";
+        echo "<label for='jsp'>Je ne sais pas</label><br><br>";
+	$i++;
 }
-
-
 ?>
+<input type="submit" name="valider" value="Valider vos réponses">
+</form>
 </body>
 </html>
