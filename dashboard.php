@@ -32,7 +32,7 @@ else {
 	if (mysqli_num_rows($resultNonPresente) > 0) {
 		echo "<p><form method=\"post\" action=\"examen.php\">";
 	        while($row = mysqli_fetch_assoc($resultNonPresente)) {
-			echo "<br><input type=\"submit\" name=\"". $row["FK_matiere"]. "\" value=\"". $row["intitule"]. "\">";
+			echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 		}
 		echo "</form></p>";
 	}
@@ -45,7 +45,7 @@ else {
 	if (mysqli_num_rows($resultTermine) > 0) {
 	        echo "<p><form method=\"post\" action=\"resultat.php\">";
 	        while($row = mysqli_fetch_assoc($resultTermine)) {
-	                echo "<br><input type=\"submit\" name=\"". $row["FK_matiere"]. "\" value=\"". $row["intitule"]. "\">";
+	                echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 	        }
 	        echo "</form></p>";
 	}
