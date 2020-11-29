@@ -31,7 +31,7 @@ $i = 1;
 echo "<form method='post' action='validation.php'>";
 while($row = mysqli_fetch_assoc($resultQuestion)) {
 	echo $i. ") ".$row["intitule_Q"]. "<br><br>";
-	$sqlReponse = "select * from reponse where FK_question = '". $row["id_Q"]. "';";
+	$sqlReponse = "select * from reponse where FK_question = '". $row["id_Q"]. "' order by rand();";
 	$resultReponse = mysqli_query($conn, $sqlReponse);
 	while($repRow = mysqli_fetch_assoc($resultReponse)) {
 		echo "<input type='radio' id='". $repRow["id"]. "' name='". $i. "' value='". $repRow["id"]. "'>";
