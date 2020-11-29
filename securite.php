@@ -2,7 +2,7 @@
 session_start();
 ?>
 <html>
-<head><title>Dashboard</title></head>
+<head><title>Sécurité</title></head>
 <body>
 <?php
 $servername = "localhost";
