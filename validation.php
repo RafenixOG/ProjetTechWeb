@@ -14,12 +14,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 $correct = 0;
 $incorrect = 0;
 for ($i = 1; $i <= $_SESSION["nbQuestion"]; $i++) {
-	$sql = "select correct from reponse where id=". $_POST["$i"]. ";";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_fetch_assoc($result)["correct"])
-		$correct++;
-	else
-		$incorrect++;
+	if ($_POST["$i"] != "" && $_POST["$i"] != "jsp") {
+		$sql = "select correct from reponse where id=". $_POST["$i"]. ";";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_fetch_assoc($result)["correct"])
+			$correct++;
+		else
+			$incorrect++;
+	}
 }
 $note = $correct - 0.5 * $incorrect;
 if ($note < 0)
