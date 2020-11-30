@@ -7,9 +7,11 @@ $dbname = "projetTechWeb";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$_SESSION["examen"] = $_POST["bouton"];
+$sqlExamen = "select examen.id as id_E from examen inner join matiere on examen.FK_matiere=matiere.id where etat='NON PRÉSENTÉ' and FK_etudiant='". $_SESSION["login"]. "' and intitule='". $_POST["bouton"]. "';";
+$resultExamen = mysqli_query($conn, $sqlExamen);
+$_SESSION["examen"] = mysqli_fetch_assoc($resultExamen)["id_E"];
 
-$sqlEnCours = "update examen inner join matiere on examen.FK_matiere = matiere.id set examen.etat='EN COURS' where matiere.intitule = '". $_SESSION["examen"]. "' and examen.FK_etudiant='". $_SESSION["login"]. "';";
+$sqlEnCours = "update examen set etat='EN COURS' where id =". $_SESSION["examen"]. ";";
 $resultEnCours = mysqli_query($conn, $sqlEnCours);
 
 echo "<html><head><title>Examen de ". $_POST["bouton"]. "</title></head><body>";
@@ -27,9 +29,11 @@ $_SESSION["nbQuestion"] = intdiv(mysqli_num_rows($resultNbQuestion), 2);
 $sqlQuestion = "select question.intitule as intitule_Q, question.id as id_Q from question inner join matiere on question.FK_matiere = matiere.id where matiere.intitule = '". $_POST["bouton"]. "' order by rand() limit ". $_SESSION["nbQuestion"]. " ;";
 $resultQuestion = mysqli_query($conn, $sqlQuestion);
 $i = 1;
+$_SESSION["listeQuestion"] = array();
 
 echo "<form method='post' action='validation.php'>";
 while($row = mysqli_fetch_assoc($resultQuestion)) {
+	$_SESSION["listeQuestion"][] = $row["id_Q"];
 	echo $i. ") ".$row["intitule_Q"]. "<br><br>";
 	$sqlReponse = "select * from reponse where FK_question = '". $row["id_Q"]. "' order by rand();";
 	$resultReponse = mysqli_query($conn, $sqlReponse);

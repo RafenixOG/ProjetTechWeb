@@ -88,3 +88,7 @@ drop table professeur;
 alter table matiere add foreign key (FK_professeur) references utilisateur(login);
 
 alter table utilisateur add column estProf boolean NOT NULL;
+
+alter table ligne modify id int auto_increment;
+
+alter table ligne modify FK_reponse smallint;
