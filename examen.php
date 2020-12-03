@@ -22,7 +22,7 @@ echo "terminer, <b>valider vos réponses à l'aide du bouton <i>VALIDER</i></b><
 echo "<p><b>ATTENTION !!!</b> Veillez à ne pas fermer votre navigateur ou quitter cette page avant de terminer et d'appuyer sur le bouton de validation.";
 echo "<br>Le non respect de cette consigne entrainera un <b>ZÉRO immédiat à l'examen !</b></p>";
 
-$sqlNbQuestion = "select * from question;";
+$sqlNbQuestion = "select question.* from question inner join matiere on question.FK_matiere=matiere.id where matiere.intitule='". $_POST["bouton"]. "';";
 $resultNbQuestion = mysqli_query($conn, $sqlNbQuestion);
 $_SESSION["nbQuestion"] = intdiv(mysqli_num_rows($resultNbQuestion), 2);
 
