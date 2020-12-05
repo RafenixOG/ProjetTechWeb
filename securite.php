@@ -31,8 +31,8 @@ if (mysqli_num_rows($result) == 1) {
                 $_SESSION["login"] = $row["login"];
                 $_SESSION["prenom"] = $row["prenom"];
                 $_SESSION["nom"] = $row["nom"];
-		$_SESSION["estProf"] = $row["estProf"]; //je le prend mais je sais pas si j'en aurais besoin
-		if ($row["estProf"]) {
+		$_SESSION["estProf"] = $row["estProf"]; 
+		if ($_SESSION["estProf"]) {
 			header("location:dashboardProf.php");
 		}
 		else {

@@ -39,8 +39,15 @@ while($row = mysqli_fetch_assoc($resultListeQuestion)) {
 	echo "</p>";
 }
 echo "<h2>Note : ". mysqli_fetch_assoc(mysqli_query($conn, "select resultat from examen where id =". $_SESSION["examen"]. ";"))["resultat"]. "/20</h2>";
+
+if ($_SESSION["estProf"])
+	$redirect = "dashboardProf.php";
+else
+	$redirect = "dashboard.php";
+
+
+echo "<form action='". $redirect. "' method='get'>";
 ?>
-<form action="dashboard.php" method="get">
 	<input type="submit" value="Retour à l'accueil">
 </form>
 
