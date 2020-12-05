@@ -43,7 +43,7 @@ else {
 
 	echo "<p><h3>Terminés :</h3></p>";
 	if (mysqli_num_rows($resultTermine) > 0) {
-	        echo "<p><form method=\"post\" action=\"resultat.php\">";
+	        echo "<p><form method=\"post\" action=\"correctifRedirect.php\">";
 	        while($row = mysqli_fetch_assoc($resultTermine)) {
 	                echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 	        }
