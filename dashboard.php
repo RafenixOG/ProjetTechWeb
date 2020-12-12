@@ -2,8 +2,9 @@
 session_start();
 ?>
 <html>
-<head><title>Dashboard</title></head>
-<body>
+<head><title>Dashboard</title><link rel="stylesheet" href="styles.css"></head>
+<body class="eleve">
+<div class="conteneur">
 <?php
 $servername = "localhost";
 $username = "connexion";
@@ -32,7 +33,7 @@ else {
 	if (mysqli_num_rows($resultNonPresente) > 0) {
 		echo "<p><form method=\"post\" action=\"examen.php\">";
 	        while($row = mysqli_fetch_assoc($resultNonPresente)) {
-			echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
+			echo "<br><input class=\"boutonEleve\" type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 		}
 		echo "</form></p>";
 	}
@@ -45,7 +46,7 @@ else {
 	if (mysqli_num_rows($resultTermine) > 0) {
 	        echo "<p><form method=\"post\" action=\"correctifRedirect.php\">";
 	        while($row = mysqli_fetch_assoc($resultTermine)) {
-	                echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
+	                echo "<br><input class=\"boutonEleve\" type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 	        }
 	        echo "</form></p>";
 	}
@@ -55,5 +56,6 @@ else {
 	}
 }
 ?>
+</div>
 </body>
 </html>

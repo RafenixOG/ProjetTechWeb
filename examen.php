@@ -14,7 +14,7 @@ $_SESSION["examen"] = mysqli_fetch_assoc($resultExamen)["id_E"];
 $sqlEnCours = "update examen set etat='EN COURS' where id =". $_SESSION["examen"]. ";";
 $resultEnCours = mysqli_query($conn, $sqlEnCours);
 
-echo "<html><head><title>Examen de ". $_POST["bouton"]. "</title></head><body>";
+echo "<html><head><title>Examen de ". $_POST["bouton"]. "</title><link rel=\"stylesheet\" href=\"styles.css\"></head><body class='eleve'><div class=\"conteneur\">";
 
 echo "<p><h1>Examen de ". $_POST["bouton"]. "</h1></p><p>Répondez aux questions ci-dessous.<br>Votre note sera calculé suivant ";
 echo "cette logique :<ul><li>Bonne réponse : +1</li><li>Mauvaise réponse : -0,5</li><li>Aucune réponse ou \"Je ne sais pas\" : 0</li></ul>Une fois ";
@@ -34,7 +34,7 @@ $_SESSION["listeQuestion"] = array();
 echo "<form method='post' action='validation.php'>";
 while($row = mysqli_fetch_assoc($resultQuestion)) {
 	$_SESSION["listeQuestion"][] = $row["id_Q"];
-	echo $i. ") ".$row["intitule_Q"]. "<br><br>";
+	echo $i. ") <span class='question'>".$row["intitule_Q"]. "</span><br><br>";
 	$sqlReponse = "select * from reponse where FK_question = '". $row["id_Q"]. "' order by rand();";
 	$resultReponse = mysqli_query($conn, $sqlReponse);
 	while($repRow = mysqli_fetch_assoc($resultReponse)) {
@@ -46,7 +46,8 @@ while($row = mysqli_fetch_assoc($resultQuestion)) {
 	$i++;
 }
 ?>
-<input type="submit" name="valider" value="Valider vos réponses">
+<input class="boutonEleve" type="submit" name="valider" value="Valider vos réponses">
 </form>
+</div>
 </body>
 </html>
