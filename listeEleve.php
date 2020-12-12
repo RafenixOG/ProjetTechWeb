@@ -2,8 +2,9 @@
 session_start();
 ?>
 <html>
-<head><title>Liste des élèves</title></head>
-<body>
+<head><title>Liste des élèves</title><link rel="stylesheet" href="styles.css"></head>
+<body class="prof">
+<div class="conteneur">
 <?php
 $servername = "localhost";
 $username = "prof";
@@ -47,10 +48,11 @@ if (mysqli_num_rows($resultTermine) == 0)
 else {
 	echo "<form method='post' action='correctifRedirectProf.php'>";
 	while ($row = mysqli_fetch_assoc($resultTermine)) {
-		echo "<input type='submit' name='bouton1' value='". $row["prenomE"]. " ". $row["nomE"]. "'><br>";
+		echo "<input class='boutonProf' type='submit' name='bouton1' value='". $row["prenomE"]. " ". $row["nomE"]. "'><br>";
 	}
 	echo "</form>";
 }
 ?>
+</div>
 </body>
 </html>

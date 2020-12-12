@@ -2,8 +2,9 @@
 session_start();
 ?>
 <html>
-<head><title>Dashboard</title></head>
-<body>
+<head><title>Dashboard</title><link rel="stylesheet" href="styles.css"></head>
+<body class="prof">
+<div class="conteneur">
 <?php
 $servername = "localhost";
 $username = "prof";
@@ -18,10 +19,11 @@ $resultExamen = mysqli_query($conn, $sqlExamen);
 echo  "<p><h1>Bonjour ". $_SESSION["prenom"]. "</h1></p><p>Voici votre liste de cours :</p>";
 echo "<form method='post' action='listeEleve.php'>";
 while ($row = mysqli_fetch_assoc($resultExamen)) {
-	echo "<br><input type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
+	echo "<br><input class='boutonProf' type=\"submit\" name=\"bouton\" value=\"". $row["intitule"]. "\">";
 }
 ?>
 </form>
+</div>
 </body>
 </html>
 
