@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    /*background-color: deepskyblue;*/
+    margin: 0% 10% 0% 10%;
+}
+
+.neutre {
+  background-color: gray;
+}
+
+.eleve {
+  background-color: deepskyblue;
+}
+
+.prof {
+  background-color: crimson;
+}
+
+.conteneur {
+    position: relative;
+    height: 100%;
+    background-color: floralwhite;
+    padding-top: 10px;
+    padding-left: 2%;
+}
+
+.boutonNeutre {
+    background-color: gray;
+    padding: 5px 10px 5px 10px;
+    border-radius: 12px;
+    color :white;    
+}
+.boutonNeutre:hover {
+  background-color: #505050;
+}
+
+.boutonEleve {
+  background-color: deepskyblue;
+  padding: 5px 10px 5px 10px;
+  border-radius: 12px;
+  color :white;    
+}
+.boutonEleve:hover {
+  background-color: #0063ff;
+}
+
+.boutonProf {
+  background-color: crimson;
+  padding: 5px 10px 5px 10px;
+  border-radius: 12px;
+  color :white;    
+}
+.boutonProf:hover {
+  background-color: #89063c;
+}
+
+.correct {
+  color: limegreen;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: line-through;
+}
+
+.question {
+  color: darkcyan;
+  text-decoration: underline darkcyan;
+  font-weight: bold;
+}

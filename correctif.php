@@ -14,7 +14,7 @@ $nomExamen = mysqli_fetch_assoc($resultNomExamen)["nom_E"];
 $sqlListeQuestion = "select * from ligne where FK_examen=". $_SESSION["examen"]. ";";
 $resultListeQuestion = mysqli_query($conn, $sqlListeQuestion);
 
-echo "<html><head><title>Correctif examen de ". $nomExamen. "</title></head><body>";
+echo "<html><head><title>Correctif examen de ". $nomExamen. "</title><link rel=\"stylesheet\" href=\"styles.css\"></head><body class='neutre'><div class=\"conteneur\">";
 
 echo "<h1>Correctif examen de ". $nomExamen. "</h1>";
 
@@ -48,8 +48,8 @@ else
 
 echo "<form action='". $redirect. "' method='get'>";
 ?>
-	<input type="submit" value="Retour à l'accueil">
+<input class="boutonNeutre" type="submit" value="Retour à l'accueil">
 </form>
-
+</div>
 </body>
 </html>
