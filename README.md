@@ -13,6 +13,8 @@ Une base de données reprendra toutes les informations nécessaires pour l'authe
 
 La gestion des sessions sera effectuée en PHP.
 
+Le site sera fait en HTML
+
 Le site sera habillé avec des feuilles de style CSS.
 
 ## Fonctionnlaités
@@ -26,6 +28,10 @@ Le site sera habillé avec des feuilles de style CSS.
 * Questions du QCM sélectionné de façon aléatoire parmi les questions disponibles
 * Réponses ordonnées de façon aléatoire **mais** la proposition "Je ne sais pas" toujours en dernière position
 * Accès à un correctif après l'évaluation
+* Code couleur en fonction du status de l'utilisateur
+  * bleu pour les élèves
+  * rouge pour les professeurs
+  * gris pour la page de connexion
 
 ## Fonctionnalités à confirmer
 * Décompte pour terminer l'évaluation
